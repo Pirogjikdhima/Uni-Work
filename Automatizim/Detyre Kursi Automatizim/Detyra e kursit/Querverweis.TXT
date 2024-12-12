@@ -1,7 +1,0 @@
-Hit ENTER to open the editor!
-
-BIT MEMORY
-
-   M20.1           # OB1      NETWORK 068 Line 0004 # W # S    M20.1
-                   # OB1      NETWORK 068 Line 0006 # W # R    M20.1
-                   # OB1      NETWORK 068 Line 0007 # R # A    M20.1
