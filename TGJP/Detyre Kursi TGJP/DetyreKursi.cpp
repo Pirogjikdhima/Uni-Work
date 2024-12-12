@@ -12,19 +12,19 @@ void printMatrix(char x[lartesia_max][gjeresia_max], int *z) {
     int c[gjeresia_max];
     int i, j;
 
-    // Shifting the elements of the matrix upward
+  
     for (i = lartesia_max - 1; i >= 0; i--) {
         for (j = 0; j < gjeresia_max; ++j) {
             x[i + 1][j] = x[i][j];
         }
     }
 
-    // Generating the array c with random integers
+
     for (j = 0; j < gjeresia_max; j++) {
         c[j] = rand() % 100 + 1;
     }
 
-    // Modifying the matrix based on the values of c
+ 
     for (j = 0; j < gjeresia_max; ++j) {
         if (c[j] < 10) {
             x[0][j] = '|';
@@ -37,11 +37,10 @@ void printMatrix(char x[lartesia_max][gjeresia_max], int *z) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO cursorInfo;
     GetConsoleCursorInfo(hConsole, &cursorInfo);
-    cursorInfo.bVisible = FALSE;  // Hide the cursor
+    cursorInfo.bVisible = FALSE;  
     SetConsoleCursorInfo(hConsole, &cursorInfo);
     SetConsoleCursorPosition(hConsole, (COORD){0, 0});
 
-    // Set the text color to bright blue
 	SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 
     for (i = 0; i < lartesia_max; ++i) {
@@ -63,11 +62,11 @@ int main() {
     CONSOLE_CURSOR_INFO cursorInfo;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     GetConsoleCursorInfo(hConsole, &cursorInfo);
-    cursorInfo.bVisible = FALSE;  // Hide the cursor
+    cursorInfo.bVisible = FALSE;  
     SetConsoleCursorInfo(hConsole, &cursorInfo);
 
     HWND consoleWindow = GetConsoleWindow();
-    ShowWindow(consoleWindow, SW_MAXIMIZE); // Open console in full-screen mode
+    ShowWindow(consoleWindow, SW_MAXIMIZE);
 
     while (!kbhit()) {
         printMatrix(b, &x);
@@ -83,7 +82,7 @@ int main() {
     fflush(fp);
     fclose(fp);
 
-    cursorInfo.bVisible = TRUE;  // Restore cursor visibility before exiting
+    cursorInfo.bVisible = TRUE;  
     SetConsoleCursorInfo(hConsole, &cursorInfo);
 
     return 0;
