@@ -1,0 +1,96 @@
+body{
+  background-color: rgb(218, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 15px;
+  width: 400px;
+  height: 600px;
+  border: 2px solid black;	
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgb(249, 255, 227);  
+}
+
+h1{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+.fourth, .fifth{
+  margin: 0 0 20px 0;
+}
+
+.fifth{
+  display: flex;
+  align-items: center;
+}
+
+.last{
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.error{
+  color: red;
+}
+
+.first input{
+  width: 80%;
+  height: 25px;
+}
+
+.tipi{
+  display: block;
+  margin: 0 0 5 0;  
+}
+
+#letrat{
+  width: 65%;
+  height: 25px;
+}
+
+#dedikim{
+  width: 95%;
+}
+
+#totali{
+  width: 50%;
+}
+
+
+.last button{
+  padding:10 20 10 20;
+  margin: 0 10;
+  border-radius: 10px;
+  border-width: 0.5;
+  cursor: pointer;
+}
+
+#fshi{
+  background-color: blue;
+  color: white;
+  transition: all 0.15s ease-in-out;
+}
+
+#llogari{
+  background-color: rgb(176, 175, 175);
+  color: black;
+  transition: all 0.15s ease-in-out;
+}
+
+#fshi:hover{
+  background-color: rgb(210, 29, 29);
+}
+#llogari:hover{
+  background-color: rgb(18, 225, 60);
+  color: rgb(36, 47, 1);
+}
+

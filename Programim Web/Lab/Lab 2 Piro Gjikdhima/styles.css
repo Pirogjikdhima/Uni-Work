@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    margin:70;
+    background-color: rgba(4, 1, 59, 1);
+}
+
+.game-container {
+    color: rgb(250, 253, 236);
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 2px;
+    background-color: white;
+}
+.player-info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 15px;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    cursor: pointer;
+    background-color: rgb(6, 1, 26);
+}
+
+
+.cell.× {
+    color: #ff5733;
+    font-family: 'Arial', sans-serif;
+    font-size: 120px;
+    font-weight:500;
+}
+
+
+.cell.O {
+    color: #33aaff;
+    font-family: 'Courier New', monospace;
+    font-size: 100px;
+    font-weight:600;
+    
+}
+.buttons{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+#restart-button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius:10px;
+}
+#switch-mode-button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #db6308;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius:10px;
+}
+
+.cell.win{
+    background-color: white;
+}

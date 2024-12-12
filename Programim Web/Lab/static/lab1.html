@@ -1,0 +1,93 @@
+<html lang="al">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1+2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Zgjedhja Juaj!</h1>
+    <form id="lab-form" method="post">
+      
+      <div class="first">
+        <label >Emri 
+          <br>
+          <input type="text" name="emri"placeholder="Emri" id="emri">
+        </label>
+        <p id="emriError" class="error"></p>
+      </div>
+      
+      <div class="second">
+      
+        <label class="tipi">
+          Tipi i Lidhjes se librit
+        </label>
+        
+        <label>
+          <input type="radio" name="zgjedhje" value="1000">
+          Lidhje e thjeshte (1000 L)
+        </label>
+        
+        <label>
+          <br>
+          <input type="radio" name="zgjedhje" value="1500">
+          Lidhje e plastifikuar (1500 L)
+        </label>
+
+        <label>
+          <br>
+          <input type="radio" name="zgjedhje" value="2000">
+          Lidhje speciale (lekure) (2000 L)
+        </label>
+        <p id="tipiError" class="error"></p>
+
+      </div>
+
+      <div class="third">
+
+        <select id="letrat">
+          <option value="" hidden selected>Zgjidhni tipin e letres</option>
+          <option value="500">A5(500 L)</option>
+          <option value="1000">A4(1000 L)</option>
+          <option value="1500">A3(1500 L)</option>
+        </select>
+        <p id="opsioneError" class="error"></p>
+
+      </div>
+      
+      <div class="fourth">
+
+        <label>
+          <strong>Printimi me ngjyra(500L)</strong>
+          <input type="checkbox" name="ngjyrabox" id="ngjyrabox" value="500">
+        </label>
+        <br>
+        <br>
+        <label>
+          <strong>Perfshi Dedikim(1000L)</strong>
+          <input type="checkbox" name="dedikimbox" id="dedikimbox" value="1000"><br>
+          <input type="text" placeholder="Dedikim" id="dedikim">
+        </label>
+
+      </div>
+
+      <div class="fifth">
+
+        <label>
+          Totali:
+        </label>
+        <input type="text" name="totali" id="totali" readonly>
+
+
+      </div>
+
+      <div class="last">
+        <button type="reset" id="fshi">Fshi</button>
+        <button type="button" id="llogari">Llogarit</button>
+      </div>
+    </form>
+  </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

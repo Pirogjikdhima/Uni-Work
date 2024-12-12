@@ -1,0 +1,52 @@
+/* Create a container for the game board */
+.game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+/* Create individual cells for the board */
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+/* Create the X and O symbols */
+.x {
+    color: white;
+}
+
+.o {
+    color: grey;
+}
+
+/* Create the score display */
+.score {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+}
+
+.player-score {
+    margin-left: 10px;
+}
+
+/* Create the two-player icon */
+.two-player {
+    margin-top: 10px;
+    font-size: 16px;
+}
