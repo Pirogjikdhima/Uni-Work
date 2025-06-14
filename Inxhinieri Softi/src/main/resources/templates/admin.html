@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Calorie Tracker</title>
+    <link rel="icon" href="/img/icon.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+    <link href="/css/admin.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="dashboard">
+    <div class="sidebar">
+        <h2 id="adminPanel"></h2>
+        <ul class="sidebar-menu">
+
+            <li onclick="showSection('reports')">
+                <i class="fas fa-chart-line"></i> Reports
+            </li>
+            <li onclick="showSection('users')">
+                <i class="fas fa-users"></i> Users
+            </li>
+            <li id="food" onclick="showSection('entries')">
+                <i class="fas fa-utensils"></i> Food Entries
+            </li>
+
+            <li onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+
+        <div id="users-section" class="content-section">
+            <div class="header">
+                <h1>User Management</h1>
+            </div>
+            <div class="card">
+                <table id="userTable" class="display">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="entries-section" class="content-section">
+            <div class="header">
+                <h1>Food Entries</h1>
+            </div>
+            <div class="card">
+                <table id="entriesTable" class="display">
+                    <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Food Item</th>
+                        <th>Calories</th>
+                        <th>Price</th>
+                        <th>Date & Time</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="reports-section" class="content-section active">
+            <div class="header">
+                <h1>Reports & Analytics</h1>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <h2>Weekly vs Previous Week Entries</h2>
+                    <canvas id="weeklyComparisonChart"></canvas>
+                </div>
+                <div class="card">
+                    <h2>Users Exceeding Monthly Price Limit</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>User</th>
+                        </tr>
+                        </thead>
+                        <tbody id="priceExceededTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Average Calories per User</h2>
+                <canvas id="averageCaloriesChart"></canvas>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="sessionData"
+     th:data-username="${username}"
+     th:data-role="${role}"
+     style="display: none;">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

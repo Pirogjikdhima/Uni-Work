@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" href="/img/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+    <link rel="stylesheet" href="/css/login&register.css">
+</head>
+<body>
+<div class="register-container">
+    <h1>Register Here</h1>
+    <form id="registerForm" method="POST">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Enter your first name">
+                <span class="error" id="first-name-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+                <span class="error" id="last-name-error"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+            <span class="error" id="username-error"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <span class="error" id="email-error"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <span class="error" id="password-error"></span>
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password">
+            <span class="error" id="confirm-password-error"></span>
+        </div>
+        <div class="button-container">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    <div class="login-link">
+        <p>Already have an account? <a href="/login">Log in here</a></p>
+    </div>
+</div>
+<script src="/js/register.js"></script>
+</body>
+</html>

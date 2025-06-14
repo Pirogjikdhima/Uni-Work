@@ -1,0 +1,517 @@
+* {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+}
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 300px;
+    font-size: larger;
+    color: #deefc8;
+    padding: 20px;
+    border-radius: 0px;
+    margin-right: 0px;
+    background: radial-gradient(circle at bottom, #ccf896, #223c23, rgb(115, 155, 214));
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+    background-position: center;
+}
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.sidebar-menu {
+    list-style: none;
+    margin-top: 25px;
+}
+.sidebar-menu li {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    /*box-shadow: 10px 10px 5px #b6dd7d;*/
+    width: 230px;
+    transition: 0.4s ease-in-out;
+}
+.sidebar-menu li:hover {
+    background-color: #b6dd7d;
+    transform: scale(1.03);
+    color : #1f3c0e;
+}
+.sidebar-menu i {
+    margin-right: 10px;
+}
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #bfea89;
+    color: #371414;
+    background: #daf3cb;
+}
+.header {
+    color: #152b08;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.content-section{
+    color: #000000;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card {
+    background-color: #c2fa7d;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgb(31, 60, 14);
+}
+.stats-grid {
+    color: #202e0d;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.stat-card {
+    background: transparent;
+    border-color: #548056;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    /*box-shadow: 10px 10px 5px #548056;*/
+    transition: 0.4s ease-in-out;
+    transform: scale(1.02);
+}
+.stat-card:hover {
+    box-shadow: 0 10px 20px rgb(46, 27, 27);
+}
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #1f3c0e;
+}
+.add-btn {
+    background-color: #ffffff;
+    background: radial-gradient(#343732 20%, #41602e 100%, #1f3c0e 100%);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    transform: scale(1.02);
+}
+.add-btn:hover {
+    box-shadow: 0 10px 20px rgb(46, 27, 27);
+}
+.date-range {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.date-range input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #b5cc9f;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.content-section {
+    display: none;
+}
+.content-section.active {
+    display: block;
+}
+
+
+#foodEntries {
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.food-entry {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.food-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.food-entry-icon {
+    background: linear-gradient(135deg, #b6dd7d, #548056);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.food-entry-icon i {
+    font-size: 20px;
+}
+
+.food-entry-content {
+    flex: 1;
+}
+
+.food-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.food-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f3c0e;
+    margin: 0;
+}
+
+.food-entry-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.food-entry-date i {
+    margin: 0 5px 0 10px;
+}
+
+.food-entry-details {
+    display: flex;
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #548056;
+    font-size: 15px;
+}
+
+.detail-item i {
+    font-size: 14px;
+}
+
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+/* Custom scrollbar for the entries container */
+#foodEntries::-webkit-scrollbar {
+    width: 8px;
+}
+
+#foodEntries::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#foodEntries::-webkit-scrollbar-thumb {
+    background: #b6dd7d;
+    border-radius: 4px;
+}
+
+
+
+#foodEntries::-webkit-scrollbar-thumb:hover {
+    background: #548056;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #b6dd7d, #548056);
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.close-modal:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#foodForm {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #1f3c0e;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.form-group input:focus {
+    border-color: #b6dd7d;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(182, 221, 125, 0.2);
+}
+
+.form-group input::placeholder {
+    color: #adb5bd;
+}
+
+.price-input-wrapper {
+    position: relative;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+.calorie-limit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgb(31, 60, 14);
+    border-radius: 10px;
+}
+
+.calorie-limit-table thead {
+    background: linear-gradient(135deg, #b6dd7d, #548056);
+    color: #ffffff;
+}
+
+.calorie-limit-table th,
+.calorie-limit-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #daf3cb;
+}
+
+.calorie-limit-table th {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.calorie-limit-table td {
+    color: #1f3c0e;
+}
+
+.calorie-limit-table tbody tr {
+    transition: 0.4s ease-in-out;
+    background-color: #ffffff;
+}
+
+.calorie-limit-table tbody tr:hover {
+    background-color: #daf3cb;
+    transform: scale(1.01);
+}
+
+.calorie-limit-table .exceeding {
+    color: #371414;
+    font-weight: 500;
+}
+
+.calorie-limit-table .within-limit {
+    color: #1f3c0e;
+}
+
+.calorie-limit-table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.calorie-limit-table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.calorie-limit-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.calorie-limit-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.cancel-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: #e9ecef;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #dee2e6;
+}
+
+.submit-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    background: linear-gradient(135deg, #b6dd7d, #548056);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 480px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-btn, .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

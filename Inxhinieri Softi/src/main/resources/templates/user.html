@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker Dashboard</title>
+    <link rel="icon" href="/img/icon.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/user.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="sidebar">
+        <h2 id="userPanel" style="text-align: center"></h2>
+        <ul class="sidebar-menu">
+            <li onclick="showSection('dashboard')" class="active">
+                <i class="fas fa-home"></i> Dashboard
+            </li>
+            <li onclick="showSection('add-calories')">
+                <i class="fas fa-plus"></i> Add Calories
+            </li>
+            <li onclick="showSection('weekly-report')">
+                <i class="fas fa-chart-bar"></i> Calorie Limit
+            </li>
+            <li onclick="showSection('custom-period')">
+                <i class="fas fa-calendar"></i> Custom Period
+            </li>
+            <li onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div id="dashboard-section" class="content-section active">
+            <div class="header">
+                <h1>Dashboard Overview</h1>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div>Today’s Calories</div>
+                    <div class="stat-value" id="todayCalories"></div>
+                </div>
+                <div class="stat-card">
+                    <div>Weekly Average</div>
+                    <div class="stat-value" id="weeklyAverage"></div>
+                </div>
+                <div class="stat-card">
+                    <div>Days Exceeding Threshold</div>
+                    <div class="stat-value" id="weeklyCalorieThreshold"></div>
+
+                </div>
+                <div class="stat-card">
+                    <div>Weekly Expenditure</div>
+                    <div class="stat-value" id="monthlySpending"></div>
+                </div>
+            </div>
+            <div class="card">
+                <canvas id="dashboardChart"></canvas>
+            </div>
+        </div>
+
+        <div id="add-calories-section" class="content-section">
+            <div class="header">
+                <h1>Add Calories</h1>
+                <button class="add-btn" onclick="openModal()">Add Entry</button>
+            </div>
+            <div class="card">
+                <div id="foodEntries"></div>
+            </div>
+        </div>
+
+        <div id="weekly-report-section" class="content-section">
+            <div class="header">
+                <h1>Calorie Limit</h1>
+            </div>
+            <div class="card">
+                <div id="calorieLimitTable"></div>
+            </div>
+        </div>
+
+        <div id="custom-period-section" class="content-section">
+            <div class="header">
+                <h1>Custom Period Analysis</h1>
+            </div>
+            <div class="date-range">
+                From<input type="date" id="startDate">
+                To<input type="date" id="endDate">
+                <button class="add-btn" onclick="filterByDate()">Filter</button>
+            </div>
+            <div class="card">
+                <canvas id="customChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-plus-circle"></i> Add Food Entry</h2>
+            <button class="close-modal" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <form id="foodForm">
+            <div class="form-group">
+                <label for="foodName">
+                    <i class="fas fa-utensils"></i> Food Name
+                </label>
+                <input type="text"
+                       id="foodName"
+                       placeholder="Enter food name"
+                       required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="calories">
+                        <i class="fas fa-fire"></i> Calories
+                    </label>
+                    <input type="number"
+                           id="calories"
+                           placeholder="Enter calories"
+                           min="0"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="price">
+                        <i class="fas fa-euro-sign"></i> Price
+                    </label>
+                    <div class="price-input-wrapper">
+                        <input type="number"
+                               id="price"
+                               placeholder="Enter price"
+                               step="0.01"
+                               min="0"
+                               required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-check"></i> Save Entry
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="sessionData"
+     th:data-username="${username}"
+     th:data-role="${role}"
+     style="display: none;">
+</div>
+
+<script>
+    function logout() {
+        window.location.href = "/logout";
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="/js/user.js"></script>
+</body>
+</html>
